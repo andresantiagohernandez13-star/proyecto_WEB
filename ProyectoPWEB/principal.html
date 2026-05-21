@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Reportes de la ciudad</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- LEAFLET CSS -->
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+</head>
+
+<body onload="cargarMapa()">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>CIVICALERT</h1>
+
+        <nav>
+
+            <a href="#">Inicio</a>
+
+            <a href="solucionados.html">Solucionados</a>
+
+            <a href="reportes.html">Reportes</a>
+
+            <a href="login.html">
+                Cerrar sesión
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!-- CONTENIDO -->
+
+    <main>
+
+        <!-- PANEL IZQUIERDO -->
+
+        <section class="panel-reportes">
+
+            <h2>Crear Reporte</h2>
+
+            <form id="formReporte"
+            onsubmit="return crearReporte()">
+
+                <!-- TITULO -->
+
+                <input
+                type="text"
+                id="titulo"
+                placeholder="Título del problema"
+                required>
+
+                <!-- DESCRIPCION -->
+
+                <textarea
+                id="descripcion"
+                placeholder="Describe el problema"
+                required></textarea>
+
+                <!-- CATEGORIA -->
+
+                <select id="categoria" required>
+
+                    <option value="">
+                        Seleccione categoría
+                    </option>
+
+                    <option value="Baches">
+                        Baches
+                    </option>
+
+                    <option value="Basura">
+                        Basura
+                    </option>
+
+                    <option value="Alumbrado">
+                        Alumbrado público
+                    </option>
+
+                    <option value="Inseguridad">
+                        Inseguridad
+                    </option>
+
+                    <option value="Agua">
+                        Fugas de agua
+                    </option>
+
+                </select>
+
+                <!-- ESTADO -->
+
+                <select id="estado">
+
+                    <option value="ALERTA">
+                        🚨 ALERTA
+                    </option>
+
+                    <option value="SOLUCIONADO">
+                        ✅ SOLUCIONADO
+                    </option>
+
+                </select>
+
+                <!-- COORDENADAS -->
+
+                <input type="hidden" id="latitud">
+                <input type="hidden" id="longitud">
+
+                <!-- BOTON -->
+
+                <button type="submit">
+                    Publicar reporte
+                </button>
+
+            </form>
+
+            <!-- REPORTES -->
+
+            <div class="lista-reportes"
+            id="listaReportes">
+
+            </div>
+
+        </section>
+
+        <!-- MAPA -->
+
+        <section class="mapa-container">
+
+            <div id="map"></div>
+
+        </section>
+
+    </main>
+
+    <!-- LEAFLET JS -->
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- SCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
